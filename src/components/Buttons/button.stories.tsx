@@ -11,4 +11,4 @@ storiesOf("Button", module)
     ))
     .add("with some emoji", () => (
         <Button>😀 😎 👍 💯</Button>
-    ),{ info: { inline: true, header: false } });
+    ),{ info: { inline: false, header: false } });

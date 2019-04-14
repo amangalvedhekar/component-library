@@ -1,7 +1,8 @@
 import * as React from 'react';
 export interface IButtonProps {
     children?: React.ReactNode,
-    onClick?: (e:any) => void
+    onClick?: (e:any) => void,
+    style?: {}
 }
 const styles = {
     border: '1px solid #eee',
