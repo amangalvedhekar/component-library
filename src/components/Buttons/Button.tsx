@@ -1,8 +1,11 @@
 import * as React from 'react';
+import styled from 'styled-components';
+
 export interface IButtonProps {
     children?: React.ReactNode,
     onClick?: (e:any) => void,
-    style?: {}
+    style?: {},
+    primary?: string,
 }
 const styles = {
     border: '1px solid #eee',
@@ -13,6 +16,17 @@ const styles = {
     padding: '3px 10px',
     margin: 10,
 };
+const SomeButton = styled.button`
+  background: ${(props: IButtonProps) => props.primary ? "palevioletred" : "white"};
+  color: ${(props: IButtonProps) => props.primary ? "white" : "palevioletred"};
+
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
 const Button: React.FunctionComponent<IButtonProps> = props => (
     <button onClick={props.onClick} style={styles} type="button">
         {props.children}
@@ -22,4 +36,4 @@ Button.defaultProps = {
     children: null,
     onClick: () => {}
 };
-export default Button;
+export default SomeButton;

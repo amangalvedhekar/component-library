@@ -2,13 +2,13 @@ import { checkA11y } from '@storybook/addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import Button from "./Button";
+import SomeButton from "./Button";
 storiesOf("Button", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("with text", () => (
-        <Button>Hello Button</Button>
+        <SomeButton>Hello Button</SomeButton>
     ))
     .add("with some emoji", () => (
-        <Button>😀 😎 👍 💯</Button>
+        <SomeButton>😀 😎 👍 💯</SomeButton>
     ),{ info: { inline: false, header: false } });
