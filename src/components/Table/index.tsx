@@ -1,47 +1,36 @@
 import * as React from 'react';
-import styled from 'styled-components';
-
-const StyledTable = styled.table`
-    border: 2px solid blue;
-`;
-
-const StyledTr = styled.tr`
-     border: 2px solid blue;
-`;
-
-const StyledThead = styled.thead`
-     border: 2px solid blue;
-`;
-
-const StyledTbody = styled.tbody`
-    border: 2px solid blue;
-`;
-
-const StyledTd = styled.td`
-    border: 2px solid blue;
-`;
-
-const StyledTh = styled.th`
-    border: 2px solid blue;
-`;
+import { tableRowColored, tableRowDefault } from "./styles";
 
 const Table = (props: any) => (
-    <StyledTable>
-        <StyledThead>
-            <StyledTr>
-                <StyledTh>1st</StyledTh>
-                <StyledTh>2nd</StyledTh>
-                <StyledTh>3rd</StyledTh>
-            </StyledTr>
-        </StyledThead>
-        <StyledTbody>
-            <StyledTr>
-                <StyledTd>one</StyledTd>
-                <StyledTd>two</StyledTd>
-                <StyledTd>three</StyledTd>
-            </StyledTr>
-        </StyledTbody>
-    </StyledTable>
+    <table style={props.tableStyle}>
+        <title>{props.title}</title>
+        <thead style={props.headStyle}>
+        <tr>
+            {props.headData.map((elm: any, idx: number) => (
+                <th
+                    key={idx}
+                    scope={"col"}
+                    style={{backgroundColor: "gray", color: "white"}}
+                >
+                    {elm.title}
+                </th>
+            ))
+            }
+        </tr>
+        </thead>
+        <tbody>
+        {props.bodyData.map((elm: any, idx: number) => (
+            <tr key={idx}
+                // @ts-ignore
+                style={(idx+1)%2 === 0 ? tableRowColored : tableRowDefault}>
+                <th scope={"row"}>{elm.symbol}</th>
+                <td>{elm.exchange}</td>
+                <td>{elm.price}</td>
+                <td>{elm.yield}</td>
+                <td>{elm.div}</td>
+            </tr>))}
+        </tbody>
+    </table>
 );
 
 export default Table;
