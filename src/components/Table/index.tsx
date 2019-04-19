@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { tableRowColored, tableRowDefault } from "./styles";
+import { ITableProps } from "./types";
 
-const Table = (props: any) => (
+const Table: React.FunctionComponent<ITableProps> = props => (
     <table style={props.tableStyle}>
         <title>{props.title}</title>
         <thead style={props.headStyle}>
