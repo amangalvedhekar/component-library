@@ -5,3 +5,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [ ] Add `react-intl` for i18n
 - [ ] Add `styled-theming` 
 - [ ] Add `media-query` for `theme`
+- [ ] Add `lerna` for `monorepo`
