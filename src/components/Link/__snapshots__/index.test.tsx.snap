@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link Component should render 1`] = `
+<styled.a
+  fontWeight="bold"
+  href="#"
+  target="_self"
+>
+  Some Link
+</styled.a>
+`;
