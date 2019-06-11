@@ -17,13 +17,13 @@ const styles = {
     margin: 10,
 };
 const SomeButton = styled.button`
-  background: ${(props: IButtonProps) => props.primary ? "palevioletred" : "white"};
-  color: ${(props: IButtonProps) => props.primary ? "white" : "palevioletred"};
-
+  background: ${(props: IButtonProps) => props.primary ? "blue" : "white"};
+  color: ${(props: IButtonProps) => props.primary ? "white" : "blue"};
+  cursor: pointer;
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  border: 2px solid blue;
   border-radius: 3px;
 `;
 

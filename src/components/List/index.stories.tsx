@@ -1,36 +1,48 @@
+import * as React from 'react';
 import {checkA11y} from '@storybook/addon-a11y';
 import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
-import * as React from 'react';
-import {ListItem, StyledSpan, List} from "./";
+import {borderType, List, StyledUl} from "./";
+import {Link} from "../Link";
 
-const data = {
-    text: "Dividends",
-    quantity: 26,
-    url: "/en/list-of-dividends"
-};
-
-const arrayData = [
-    {
-        text: "Dividends",
-        quantity: 26,
-        url: "/en/list-of-dividends"
-    },
-    {
-        text: "Orders",
-        quantity: 11,
-        url: "/en/list-of-orders"
-    },
-    {
-        text: "Fees",
-        quantity: 2,
-        url: "/en/list-of-fees"
-    }
-];
+const data = ["dividends", "fees", "trade", "deposits"];
 
 storiesOf("List", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
-    .add("Badges", () => <StyledSpan>22</StyledSpan>)
-    .add("List Item", () => <div style={{width: "40%"}}><ListItem item={data}/></div>)
-    .add("List", () => <div style={{width: "40%"}}><List items={arrayData}/></div>);
+    .add("with tab index and all border", () => (
+        <StyledUl>
+            <List data={"abc"} tabIndex={1} borderType={borderType.all}>
+                <Link href={"/something"}>
+                    {"abc"}
+                </Link>
+            </List>
+        </StyledUl>
+    ))
+    .add("with out tab index and bottom border", () => (
+        <StyledUl>
+            <List data={"abc"} borderType={borderType.bottom}>
+                <Link href={"/something"}>
+                    {"abc"}
+                </Link>
+            </List>
+        </StyledUl>
+    ))
+    .add("with out tab index and top border", () => (
+        <StyledUl>
+            <List data={"abc"} borderType={borderType.top}>
+                <Link href={"/something"}>
+                    {"abc"}
+                </Link>
+            </List>
+        </StyledUl>
+    ))
+    .add("practical example", () => (<StyledUl>
+        {data.map(elm => (
+            <List data={elm} borderType={borderType.bottom} tabIndex={1}>
+                <Link href={"#"}>
+                    {elm}
+                </Link>
+            </List>
+        ))}
+    </StyledUl>));

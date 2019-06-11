@@ -8,7 +8,4 @@ storiesOf("Button", module)
     .addDecorator(withInfo)
     .add("with text", () => (
         <SomeButton>Hello Button</SomeButton>
-    ))
-    .add("with some emoji", () => (
-        <SomeButton>😀 😎 👍 💯</SomeButton>
-    ),{ info: { inline: false, header: false } });
+    ));
