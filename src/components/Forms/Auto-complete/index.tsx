@@ -1,9 +1,19 @@
-// @ts-ignore
-import React, { Component, Fragment } from "react";
-import "./index.css";
+import React, {Component, Fragment} from "react";
+import {TextInput} from "../Elements/Input";
+import {borderType, List, StyledUl} from "../../List";
+import styled from "styled-components";
+
+const StyledSuggestion = styled(StyledUl)`
+    width: 100%;
+    border: 1px solid grey;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-width: 0;
+    margin-top: 0;
+    padding: 0;
+`;
+
 class AutoComplete extends Component {
-
-
     constructor(props:  any) {
         super(props);
 
@@ -110,30 +120,26 @@ class AutoComplete extends Component {
         if (showSuggestions && userInput) {
             if (filteredSuggestions.length) {
                 suggestionsListComponent = (
-                    <ul className="suggestions">
+                    <StyledSuggestion>
                         {filteredSuggestions.map((suggestion: any, index: number) => {
-                            let className;
-
-                            // Flag the active suggestion with a className
-                            if (index === activeSuggestion) {
-                                className = "suggestion-active";
-                            }
 
                             return (
-                                <li
-                                    className={className}
+                                <List
+                                    data={suggestion}
+                                    borderType={index === filteredSuggestions.length - 1 ? borderType.none : borderType.bottom}
+                                    tabIndex={0}
                                     key={suggestion}
                                     onClick={onClick}
                                 >
                                     {suggestion}
-                                </li>
+                                </List>
                             );
                         })}
-                    </ul>
+                    </StyledSuggestion>
                 );
             } else {
                 suggestionsListComponent = (
-                    <div className="no-suggestions">
+                    <div>
                         <em>No suggestions, you're on your own!</em>
                     </div>
                 );
@@ -142,11 +148,12 @@ class AutoComplete extends Component {
 
         return (
             <Fragment>
-                <input
-                    type="text"
+                <TextInput
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                     value={userInput}
+                    role={"search"}
+                    placeholder={"city"}
                 />
                 {suggestionsListComponent}
             </Fragment>

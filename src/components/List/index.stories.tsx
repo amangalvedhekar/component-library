@@ -12,7 +12,7 @@ storiesOf("List", module)
     .addDecorator(withInfo)
     .add("with tab index and all border", () => (
         <StyledUl>
-            <List data={"abc"} tabIndex={1} borderType={borderType.all}>
+            <List data={"abc"} tabIndex={0} borderType={borderType.all}>
                 <Link href={"/something"}>
                     {"abc"}
                 </Link>
@@ -39,7 +39,7 @@ storiesOf("List", module)
     ))
     .add("practical example", () => (<StyledUl>
         {data.map(elm => (
-            <List data={elm} borderType={borderType.bottom} tabIndex={1}>
+            <List data={elm} borderType={borderType.bottom} tabIndex={0} key={elm}>
                 <Link href={"#"}>
                     {elm}
                 </Link>

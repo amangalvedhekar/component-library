@@ -13,7 +13,8 @@ export interface IList {
     children: React.ReactNode;
     data: string;
     tabIndex?: number;
-    borderType: borderType
+    borderType: borderType;
+    onClick?: (e: React.SyntheticEvent) => void;
 }
 
 export const StyledUl = styled("ul")`
@@ -37,7 +38,6 @@ const StyledLI: any = styled("li")`
 
 
 export const List = ({children, data, borderType, ...props}: IList) => (<StyledLI
-    key={data}
     borderType={borderType}
     {...props}
 >
