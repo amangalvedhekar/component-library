@@ -22,6 +22,7 @@ storiesOf("Auto Complete", module)
     .addDecorator(withInfo)
     .add("default",
         () => (
-            // @ts-ignore
-            <AutoComplete suggestions={suggestions}/>
+            <div style={{ 'textAlign': 'center', 'margin': 'auto', 'width': '80%' }}>
+                <AutoComplete suggestions={suggestions}/>
+            </div>
         ));

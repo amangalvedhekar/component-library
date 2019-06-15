@@ -1,20 +1,42 @@
 import React, {Component, Fragment} from "react";
 import {TextInput} from "../Elements/Input";
 import {borderType, List, StyledUl} from "../../List";
+// import {device} from "../../../utility/css";
 import styled from "styled-components";
 
+export interface IAutoCompleteProps {
+    suggestions: string[];
+}
+
+export interface IAutoCompleteState {
+    activeSuggestion: number;
+    filteredSuggestions: string[];
+    showSuggestions: boolean;
+    userInput: string;
+}
+
 const StyledSuggestion = styled(StyledUl)`
-    width: 100%;
+    width: calc(100% + 1rem);
     border: 1px solid grey;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    border-top-width: 0;
     margin-top: 0;
     padding: 0;
+    text-align: left;
 `;
 
-class AutoComplete extends Component {
-    constructor(props:  any) {
+const SuggestionElement = styled(List)`
+    cursor: pointer;
+    :active,
+    :focus, 
+    :hover {
+        color: white;
+        background-color: blue;
+    }
+`;
+
+class AutoComplete extends Component<IAutoCompleteProps, IAutoCompleteState> {
+    constructor(props:  IAutoCompleteProps) {
         super(props);
 
         this.state = {
@@ -30,15 +52,12 @@ class AutoComplete extends Component {
     }
 
     // Event fired when the input value is changed
-    // @ts-ignore
-    onChange = e => {
-        // @ts-ignore
+    onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { suggestions } = this.props;
         const userInput = e.currentTarget.value;
 
         // Filter our suggestions that don't contain the user's input
         const filteredSuggestions = suggestions.filter(
-            // @ts-ignore
             suggestion =>
                 suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
         );
@@ -54,8 +73,7 @@ class AutoComplete extends Component {
     };
 
     // Event fired when the user clicks on a suggestion
-    // @ts-ignore
-    onClick = e => {
+    onClick = (e: any) => {
         // Update the user input and reset the rest of the state
         this.setState({
             activeSuggestion: 0,
@@ -66,11 +84,9 @@ class AutoComplete extends Component {
     };
 
     // Event fired when the user presses a key down
-    // @ts-ignore
-    onKeyDown = e => {
-        // @ts-ignore
+    onKeyDown = (e: any) => {
         const { activeSuggestion, filteredSuggestions } = this.state;
-
+        console.log("user pressed enter", e.currentTarget);
         // User pressed the enter key, update the input and close the
         // suggestions
         if (e.keyCode === 13) {
@@ -104,13 +120,9 @@ class AutoComplete extends Component {
             onClick,
             onKeyDown,
             state: {
-                // @ts-ignore
                 activeSuggestion,
-                // @ts-ignore
                 filteredSuggestions,
-                // @ts-ignore
                 showSuggestions,
-                // @ts-ignore
                 userInput
             }
         } = this;
@@ -124,7 +136,7 @@ class AutoComplete extends Component {
                         {filteredSuggestions.map((suggestion: any, index: number) => {
 
                             return (
-                                <List
+                                <SuggestionElement
                                     data={suggestion}
                                     borderType={index === filteredSuggestions.length - 1 ? borderType.none : borderType.bottom}
                                     tabIndex={0}
@@ -132,7 +144,7 @@ class AutoComplete extends Component {
                                     onClick={onClick}
                                 >
                                     {suggestion}
-                                </List>
+                                </SuggestionElement>
                             );
                         })}
                     </StyledSuggestion>
@@ -147,7 +159,7 @@ class AutoComplete extends Component {
         }
 
         return (
-            <Fragment>
+            <div>
                 <TextInput
                     onChange={onChange}
                     onKeyDown={onKeyDown}
@@ -156,7 +168,7 @@ class AutoComplete extends Component {
                     placeholder={"city"}
                 />
                 {suggestionsListComponent}
-            </Fragment>
+            </div>
         );
     }
 }

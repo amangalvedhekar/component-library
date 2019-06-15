@@ -15,13 +15,13 @@ export interface IList {
     tabIndex?: number;
     borderType: borderType;
     onClick?: (e: React.SyntheticEvent) => void;
+    onKeyDown?: (e: any) => void;
 }
 
 export const StyledUl = styled("ul")`
     list-style: none;
 `;
-const getBorderForListItem = (borderType: borderType) => {
-    console.log("inside fun", borderType);
+export const getBorderForListItem = (borderType: borderType) => {
     return {
         top: "border-top: 1px solid grey",
         bottom: "border-bottom: 1px solid grey",

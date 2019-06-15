@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export interface ITextInput {
     placeholder: string;
-    onChange?: (e: React.SyntheticEvent) => void;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onKeyDown?: (e: React.SyntheticEvent) => void;
     value?: any;
     role?: string;
@@ -11,7 +11,6 @@ export interface ITextInput {
 
 const StyledInput = styled.input`
   width: 100%;
-  border-radius: 20px;
   padding: 8px;
 `;
 
