@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image component is rendered 1`] = `
+<styled.img
+  alt="some text"
+  borderType="all"
+  src="https://placeimg.com/640/480/any"
+/>
+`;

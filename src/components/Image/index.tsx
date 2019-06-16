@@ -5,7 +5,7 @@ import {borderType, getBorderForListItem} from "../List";
 export interface IImageProps {
     src: string;
     alt: string;
-    borderType: borderType
+    borderType?: borderType;
 }
 
 const Image = styled.img`
@@ -14,6 +14,12 @@ const Image = styled.img`
     padding: 1px;
 `;
 
-export const StyledImage: React.FunctionComponent<IImageProps> = props => (
+const StyledImage: React.FunctionComponent<IImageProps> = props => (
     <Image src={props.src} alt={props.alt} {...props}/>
 );
+
+StyledImage.defaultProps = {
+    borderType: borderType.none
+};
+
+export default StyledImage;

@@ -21,13 +21,16 @@ export interface IList {
 export const StyledUl = styled("ul")`
     list-style: none;
 `;
-export const getBorderForListItem = (borderType: borderType) => {
+export const getBorderForListItem = (border : borderType | undefined) => {
+    if (border === undefined) {
+        border = borderType.none;
+    }
     return {
         top: "border-top: 1px solid grey",
         bottom: "border-bottom: 1px solid grey",
         all: "border: 1px solid grey",
         none: "border: none"
-    }[borderType];
+    }[border];
 };
 
 const StyledLI: any = styled("li")`
