@@ -7,4 +7,8 @@ import {TextInput} from "./";
 storiesOf("Input field", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
-    .add("default input", () => (<TextInput placeholder={"name"}/>));
+    .add("default input", () => (
+        <div style={{margin: "0 auto", textAlign: "center", width: "80%"}}>
+            <TextInput type={"text"} placeholder={"name"}/>
+        </div>
+    ));

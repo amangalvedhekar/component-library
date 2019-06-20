@@ -1,12 +1,14 @@
 import React from "react";
 import styled from 'styled-components';
 
+//ToDo: support and border setting based on props  -> isError
 export interface ITextInput {
     placeholder: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onKeyDown?: (e: React.SyntheticEvent) => void;
     value?: any;
     role?: string;
+    type?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onKeyDown?: (e: React.SyntheticEvent) => void;
 }
 
 const StyledInput = styled.input`
@@ -14,9 +16,9 @@ const StyledInput = styled.input`
   padding: 8px;
 `;
 
-export const TextInput = ({placeholder, ...props}: ITextInput) => (
+export const TextInput = ({placeholder,type, ...props}: ITextInput) => (
     <StyledInput
-        type={"text"}
+        type={type}
         placeholder={placeholder}
         aria-label={placeholder}
         {...props}

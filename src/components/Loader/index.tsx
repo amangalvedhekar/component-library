@@ -20,12 +20,6 @@ const Dot = styled.span`
     border-radius: 100%;
     display: inline-block;
     animation: ${Bounce} 1s infinite ease-in-out both;
-    &:first-child {
-        animation-delay: -0.32s;
-    }
-    &:nth-child(2) {
-        animation-delay: -0.16s;
-    }
 `;
 
 const Loader = (props: any) => {

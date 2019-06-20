@@ -1,39 +1,43 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
+import Loader from '../Loader';
 
 export interface IButtonProps {
-    children?: React.ReactNode,
-    onClick?: (e:any) => void,
-    style?: {},
-    primary?: string,
+    children: React.ReactNode;
+    disabled: boolean;
+    onClick?: (e: any) => void;
+    loading: boolean;
 }
-const styles = {
-    border: '1px solid #eee',
-    borderRadius: 3,
-    backgroundColor: '#FFFFFF',
-    cursor: 'pointer',
-    fontSize: 15,
-    padding: '3px 10px',
-    margin: 10,
-};
-const SomeButton = styled.button`
-  background: ${(props: IButtonProps) => props.primary ? "blue" : "white"};
-  color: ${(props: IButtonProps) => props.primary ? "white" : "blue"};
-  cursor: pointer;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid blue;
-  border-radius: 3px;
+
+const StyledButton = styled.button`
+    border-radius: 5px;
+    background-color: #0075be;
+    opacity: ${(props: IButtonProps) => (props.disabled || props.loading) ? "0.5" : undefined};
+    color: #fff;
+    padding: 16px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: ${(props: IButtonProps) => (props.disabled || props.loading) ? "not-allowed" : "pointer"};
+    margin: 16px;
+    border: 2px solid #0075be;
 `;
 
-const Button: React.FunctionComponent<IButtonProps> = props => (
-    <button onClick={props.onClick} style={styles} type="button">
-        {props.children}
-    </button>
+const Button: React.FunctionComponent<IButtonProps> = (
+    {
+        loading,
+        children,
+        disabled,
+        ...props
+    }) => (
+    <StyledButton
+        disabled={disabled}
+        loading={loading}
+        aria-disabled={disabled}
+        {...props}
+    >
+        {loading ? <Loader small/> : children}
+    </StyledButton>
 );
-Button.defaultProps = {
-    children: null,
-    onClick: () => {}
-};
-export default SomeButton;
+
+export default Button

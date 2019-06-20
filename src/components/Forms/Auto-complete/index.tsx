@@ -161,6 +161,7 @@ class AutoComplete extends Component<IAutoCompleteProps, IAutoCompleteState> {
         return (
             <div>
                 <TextInput
+                    type={"text"}
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                     value={userInput}
