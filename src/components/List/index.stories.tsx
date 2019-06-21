@@ -4,8 +4,28 @@ import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
 import {borderType, List, StyledUl} from "./";
 import {Link} from "../Link";
+import CheckBox from "../Forms/CheckBox/";
+import {boolean} from "@storybook/addon-knobs";
 
 const data = ["dividends", "fees", "trade", "deposits"];
+const packItems = [
+    {
+        isPacked: false,
+        name: "Abc",
+    },
+    {
+        isPacked: false,
+        name: "Def",
+    },
+    {
+        isPacked: false,
+        name: "Ghi",
+    },
+    {
+        isPacked: false,
+        name: "Jkl",
+    }
+];
 
 storiesOf("List", module)
     .addDecorator(checkA11y)
@@ -37,7 +57,7 @@ storiesOf("List", module)
             </List>
         </StyledUl>
     ))
-    .add("practical example", () => (<StyledUl>
+    .add("List of items", () => (<StyledUl>
         {data.map(elm => (
             <List data={elm} borderType={borderType.bottom} tabIndex={0} key={elm}>
                 <Link href={"#"}>
@@ -45,4 +65,22 @@ storiesOf("List", module)
                 </Link>
             </List>
         ))}
+    </StyledUl>))
+    .add("List with checkbox and link", () => (<StyledUl>
+        {packItems.map(elm => (
+            <List
+                data={elm.name}
+                borderType={borderType.none}
+                tabIndex={0}
+                key={elm.name}
+            >
+                <CheckBox
+                    name={elm.name}
+                    labelname={elm.name}
+                    checked={boolean("Is checked", false)}
+                />
+                <Link href={"#"}>
+                    {"Remove"}
+                </Link>
+            </List>))}
     </StyledUl>));

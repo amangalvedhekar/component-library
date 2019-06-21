@@ -6,8 +6,9 @@ export interface ILinkInterface {
     fontWeight?: string;
     children?: React.ReactNode;
     href?: string;
+    color?: string;
     target?: "_self" | "_blank" | "_parent" | "_top";
-    onClick?: () => {};
+    onClick?: (e: any) => void;
 }
 
 const StyledLink = styled.a`
@@ -19,6 +20,7 @@ const StyledLink = styled.a`
     }
     font-size: ${(props: ILinkInterface) => props.fontSize ? props.fontSize : "large"};
     font-weight: ${(props: ILinkInterface) => props.fontWeight ? props.fontWeight : "normal" };
+    color: ${(props: ILinkInterface) => props.color ? props.color : "blue"};
 `;
 
 export const Link: React.FunctionComponent<ILinkInterface> = props =>
