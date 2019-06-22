@@ -14,7 +14,7 @@ storiesOf("CheckBox", module)
             name={"abc"}
             labelname={"One Item"}
             checked={boolean("Is Checked", false)}
-            defaultChecked={boolean("Is Checked", false)}
+            defaultChecked={boolean("default check", false)}
         />
     );
 
