@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledInput = styled(TextInput)`
-    flex : 1;
+    flex : 2;
 `;
 
 const StyledButton = styled(Button)`
@@ -27,6 +27,7 @@ const StyledButton = styled(Button)`
   background: #f32e5b;
   color:white;
   margin: 0;
+  flex: 1;
 `;
 
 const InputButton: React.FunctionComponent<IInputButtonProps> = props => (

@@ -14,8 +14,8 @@ storiesOf("Input Button", module)
         () => (
             <InputButton
                 placeholder={"Enter here"}
-                isLoading={true}
-                isDisabled={true}
+                isLoading={false}
+                isDisabled={false}
                 type={"text"}
                 buttonText={"Click Here"}
             />

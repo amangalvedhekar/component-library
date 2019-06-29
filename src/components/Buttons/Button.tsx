@@ -11,10 +11,11 @@ export interface IButtonProps {
 }
 
 const StyledButton = styled.button`
+    width: 100%;
     border-radius: 5px;
-    background-color: ${(props: IButtonProps) => props.color ? props.color : "#0075be"};
+    background-color: ${(props: IButtonProps) => props.color ? props.color : "#fff"};
     opacity: ${(props: IButtonProps) => (props.disabled || props.loading) ? "0.5" : undefined};
-    color: #fff;
+    color: #000;
     padding: 16px;
     font-size: 16px;
     outline: none;
