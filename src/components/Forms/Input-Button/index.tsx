@@ -16,18 +16,26 @@ export interface IInputButtonProps {
 
 const Wrapper = styled.div`
   display:flex;
+  flex-direction:row;
+  border:1px solid grey;
 `;
 
 const StyledInput = styled(TextInput)`
-    flex : 2;
+     flex-grow:3;
+     border:none;
+     :focus {
+        outline: none;
+    }
 `;
 
 const StyledButton = styled(Button)`
-  border:1px solid #f32e5b;
   background: #f32e5b;
   color:white;
+  padding: 4px;
   margin: 0;
-  flex: 1;
+  border: 0;
+  border-radius: 0;
+  width: 20%;
 `;
 
 const InputButton: React.FunctionComponent<IInputButtonProps> = props => (
