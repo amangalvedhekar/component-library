@@ -31,13 +31,10 @@ const StyledListElement = styled(List)`
 `;
 
 const StyledButton = styled(Button)`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 0;
-    text-align: left;
-    > svg {
-        display: inline-block;
-        vertical-align: middle;
-        float: right;
-    }
 `;
 
 class DropDown extends React.Component<any, IStateType> {
@@ -75,7 +72,7 @@ class DropDown extends React.Component<any, IStateType> {
         this.setState({
             selectedDropDown: title,
             dropDownOpen: false
-        }, this.props.resetThenSet(id, stateKey))
+        })
     }
 
     toggleList() {
@@ -94,7 +91,7 @@ class DropDown extends React.Component<any, IStateType> {
                     disabled={false}
                     onClick={() => this.toggleList()}
                 >
-                    {selectedDropDown}
+                    <span>{selectedDropDown}</span>
                     {dropDownOpen
                         ? <FontAwesomeIcon icon={faAngleUp} size={"2x"}/>
                         : <FontAwesomeIcon icon={faAngleDown} size={"2x"}/>

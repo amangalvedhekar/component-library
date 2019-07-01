@@ -16,12 +16,12 @@ const StyledButton = styled.button`
     background-color: ${(props: IButtonProps) => props.color ? props.color : "#fff"};
     opacity: ${(props: IButtonProps) => (props.disabled || props.loading) ? "0.5" : undefined};
     color: #000;
-    padding: 16px;
+    padding: 8px;
     font-size: 16px;
     outline: none;
     border: none;
     cursor: ${(props: IButtonProps) => (props.disabled || props.loading) ? "not-allowed" : "pointer"};
-    margin: 16px;
+    margin: 4px;
     border: 2px solid ${(props: IButtonProps) => props.color ? props.color : "#0075be"};
 `;
 

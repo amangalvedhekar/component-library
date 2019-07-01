@@ -3,7 +3,7 @@ import {checkA11y} from '@storybook/addon-a11y';
 import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
 import InputButton from "./";
-import {withKnobs} from "@storybook/addon-knobs";
+import {text, withKnobs} from "@storybook/addon-knobs";
 
 
 storiesOf("Input Button", module)
@@ -13,10 +13,10 @@ storiesOf("Input Button", module)
     .add("default",
         () => (
             <InputButton
-                placeholder={"Enter here"}
+                placeholder={text("Placeholder", "Email here")}
                 isLoading={false}
                 isDisabled={false}
                 type={"text"}
-                buttonText={"Click Here"}
+                buttonText={text("input button name", "Sign Up")}
             />
         ));

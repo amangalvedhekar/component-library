@@ -15,7 +15,7 @@ const Image = styled.img`
 `;
 
 const StyledImage: React.FunctionComponent<IImageProps> = props => (
-    <Image src={props.src} alt={props.alt} {...props}/>
+    <Image src={props.src} alt={props.alt} {...props} />
 );
 
 StyledImage.defaultProps = {

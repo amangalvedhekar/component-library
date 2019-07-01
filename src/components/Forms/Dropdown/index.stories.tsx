@@ -3,6 +3,7 @@ import {checkA11y} from '@storybook/addon-a11y';
 import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
 import DropDown from "./";
+import {text, withKnobs} from "@storybook/addon-knobs";
 
 const fruit = [
     {
@@ -35,19 +36,15 @@ const fruit = [
         selected: false,
         key: 'fruit'
     }
-    ];
-
-// const resetThenSet = (id, key) => {
-//     let temp = JSON.parse(JSON.stringify(this.state[key]))
-//     temp.forEach(item => item.selected = false);
-//     temp[id].selected = true;
-//     this.setState({
-//         [key]: temp
-//     })
-// }
-
+];
 
 storiesOf("Drop Down", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
-    .add("default", () => (<DropDown list={fruit} title={"Please Select"}/>));
+    .addDecorator(withKnobs)
+    .add("default", () => (
+        <DropDown
+            list={fruit}
+            title={text("Placeholder", "Please Select")}
+        />)
+    );
