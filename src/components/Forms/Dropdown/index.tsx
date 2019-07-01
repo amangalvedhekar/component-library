@@ -1,7 +1,7 @@
 import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown, faAngleUp, faCheck,} from '@fortawesome/free-solid-svg-icons';
-import Button from "../../Buttons/Button";
+import Button from "../../Buttons/";
 import {borderType, List, StyledUl} from "../../List";
 import styled from "styled-components";
 

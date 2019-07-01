@@ -3,7 +3,7 @@ import InputButton from "./components/Forms/Input-Button/";
 import SectionHeading from "./components/Header/";
 import styled from "styled-components";
 import {TextInput} from "./components/Forms/Elements/Input";
-import Button from "./components/Buttons/Button";
+import Button from "./components/Buttons/";
 import {borderType, List, StyledUl} from "./components/List";
 import {Link} from "./components/Link";
 import CheckBox from "./components/Forms/CheckBox/";

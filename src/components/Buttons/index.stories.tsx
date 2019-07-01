@@ -4,7 +4,7 @@ import {boolean, text, withKnobs} from "@storybook/addon-knobs";
 import {action, configureActions} from '@storybook/addon-actions';
 import {withInfo} from '@storybook/addon-info';
 import * as React from 'react';
-import Button from "./Button";
+import Button from "./";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
     faAngleUp,

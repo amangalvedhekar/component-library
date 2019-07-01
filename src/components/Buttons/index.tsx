@@ -42,4 +42,4 @@ const Button: React.FunctionComponent<IButtonProps> = (
     </StyledButton>
 );
 
-export default Button
+export default Button;
