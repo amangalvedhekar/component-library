@@ -6,8 +6,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [ ] Add `styled-theming` 
 - [ ] Add `media-query` for `theme`
 - [ ] Add `lerna` for `monorepo`
-
-## To run this application:
-- install dependencies with your choice of maanger `npm` or `yarn` 
-- run `yarn storybook` to see the components in action
-- run `yarn start` to run the actual application
