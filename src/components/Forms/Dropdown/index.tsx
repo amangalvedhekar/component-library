@@ -1,41 +1,9 @@
 import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleDown, faAngleUp, faCheck,} from '@fortawesome/free-solid-svg-icons';
-import Button from "../../Buttons/";
-import {borderType, List, StyledUl} from "../../List";
-import styled from "styled-components";
-
-export interface IStateType {
-    dropDownOpen: boolean;
-    selectedDropDown: string;
-}
-
-const StyledList = styled(StyledUl)`
-    width: 100%;
-    border: 1px solid grey;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin-top: 0;
-    padding: 0;
-    text-align: left;
-`;
-
-const StyledListElement = styled(List)`
-    cursor: pointer;
-    :active,
-    :focus, 
-    :hover {
-        color: white;
-        background-color: #0075be;
-    }
-`;
-
-const StyledButton = styled(Button)`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-`;
+import {borderType} from "../../List";
+import {StyledButton, StyledList, StyledListElement, AngleButton} from "./styles";
+import {IStateType} from "./types";
 
 class DropDown extends React.Component<any, IStateType> {
     constructor(props: any) {
@@ -92,10 +60,7 @@ class DropDown extends React.Component<any, IStateType> {
                     onClick={() => this.toggleList()}
                 >
                     <span>{selectedDropDown}</span>
-                    {dropDownOpen
-                        ? <FontAwesomeIcon icon={faAngleUp} size={"2x"}/>
-                        : <FontAwesomeIcon icon={faAngleDown} size={"2x"}/>
-                    }
+                    <AngleButton angleType={dropDownOpen ? "up" : "down"}/>
                 </StyledButton>
                 {dropDownOpen && <StyledList onClick={e => e.stopPropagation()}>
                     {list.map((item: any, idx: number) => (
@@ -105,7 +70,7 @@ class DropDown extends React.Component<any, IStateType> {
                             key={item.id}
                             onClick={() => this.selectItem(item.title, item.id, item.key)}
                         >
-                            {item.title} {item.selected && <FontAwesomeIcon icon={faCheck}/>}
+                            {item.title} {item.title === selectedDropDown && <FontAwesomeIcon icon={faCheck} color={"#0075be"} />}
                         </StyledListElement>
                     ))}
                 </StyledList>}

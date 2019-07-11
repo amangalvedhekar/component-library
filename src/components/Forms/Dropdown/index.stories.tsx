@@ -40,7 +40,6 @@ const fruit = [
 
 storiesOf("Drop Down", module)
     .addDecorator(checkA11y)
-    .addDecorator(withInfo)
     .addDecorator(withKnobs)
     .add("default", () => (
         <DropDown
