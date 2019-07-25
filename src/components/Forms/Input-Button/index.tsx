@@ -31,11 +31,17 @@ const StyledInput = styled(TextInput)`
 const StyledButton = styled(Button)`
   background: #f32e5b;
   color:white;
-  padding: 4px;
+  padding: 0px;
+  @media (min-width: 1024px) {
+    width: 10%
+  }
+   @media (max-width: 640px) {
+    width: 30%
+  }
   margin: 0;
   border: 0;
   border-radius: 0;
-  width: 20%;
+  
 `;
 
 const InputButton: React.FunctionComponent<IInputButtonProps> = props => (

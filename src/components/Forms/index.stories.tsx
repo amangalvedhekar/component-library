@@ -37,17 +37,17 @@ const fruit = [
     }
 ];
 
-storiesOf("Form Components", module)
-    .addDecorator(checkA11y)
-    .add("CheckBox", () => (
-        <CheckBox
-            name={"Some text"}
-            labelname={"Some text"} checked={true}
-        />)
-    )
-    .add("DropDown", () => (
-        <Dropdown
-            list={fruit}
-            title={"Select a fruit"}
-        />)
-    );
+// storiesOf("Form Components", module)
+//     .addDecorator(checkA11y)
+//     .add("CheckBox", () => (
+//         <CheckBox
+//             name={"Some text"}
+//             labelname={"Some text"} checked={true}
+//         />)
+//     )
+//     .add("DropDown", () => (
+//         <Dropdown
+//             list={fruit}
+//             title={"Select a fruit"}
+//         />)
+//     );

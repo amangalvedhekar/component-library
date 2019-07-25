@@ -38,7 +38,7 @@ const fruit = [
     }
 ];
 
-storiesOf("Drop Down", module)
+storiesOf("Form Components/Drop Down", module)
     .addDecorator(checkA11y)
     .addDecorator(withKnobs)
     .add("default", () => (
