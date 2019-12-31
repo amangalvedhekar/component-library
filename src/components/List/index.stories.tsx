@@ -27,7 +27,7 @@ const packItems = [
     }
 ];
 
-storiesOf("List", module)
+storiesOf("Components/List", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("with tab index and all border", () => (

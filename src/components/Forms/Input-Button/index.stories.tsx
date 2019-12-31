@@ -6,7 +6,7 @@ import InputButton from "./";
 import {text, withKnobs} from "@storybook/addon-knobs";
 
 
-storiesOf("Form Components/Input Button", module)
+storiesOf("Components/Form Components/Input Button", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .addDecorator(withKnobs)

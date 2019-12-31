@@ -4,7 +4,7 @@ import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
 import SectionHeading from './';
 
-storiesOf("Section Header", module)
+storiesOf("Components/Section Header", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("default", () => (

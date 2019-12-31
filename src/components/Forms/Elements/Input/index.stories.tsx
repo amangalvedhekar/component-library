@@ -4,7 +4,7 @@ import {withInfo} from '@storybook/addon-info';
 import {storiesOf} from '@storybook/react';
 import {TextInput} from "./";
 
-storiesOf("Input field", module)
+storiesOf("Components/Input field", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("default input", () => (

@@ -5,7 +5,7 @@ import {storiesOf} from '@storybook/react';
 import Loader from './';
 
 
-storiesOf("Loader", module)
+storiesOf("Components/Loader", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("default", () => (

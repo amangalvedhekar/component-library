@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import {Link} from "./";
 
-storiesOf("Link", module)
+storiesOf("Components/Link", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("default", () => (<Link fontWeight={"bold"}>Some Link</Link>));

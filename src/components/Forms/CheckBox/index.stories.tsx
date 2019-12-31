@@ -6,7 +6,7 @@ import {withInfo} from '@storybook/addon-info';
 import * as React from 'react';
 import CheckBox from "./";
 
-storiesOf("Form Components/CheckBox", module)
+storiesOf("Components/Form Components/CheckBox", module)
     .addDecorator(checkA11y)
     .addDecorator(withKnobs)
     .addDecorator(withInfo)

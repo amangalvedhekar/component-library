@@ -5,7 +5,7 @@ import * as React from 'react';
 import Table from "./";
 import { headData, bodyData } from "./data";
 
-storiesOf("Table", module)
+storiesOf("Components/Table", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("row header", () => (

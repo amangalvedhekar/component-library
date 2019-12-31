@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 
-storiesOf("Button", module)
+storiesOf("Components/Button", module)
     .addDecorator(checkA11y)
     .addDecorator(withKnobs)
     .addDecorator(withInfo)

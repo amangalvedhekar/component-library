@@ -5,7 +5,7 @@ import {storiesOf} from '@storybook/react';
 import StyledImage from './';
 import {borderType} from "../List";
 
-storiesOf("Image Tag", module)
+storiesOf("Components/Image Tag", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("default", () => (

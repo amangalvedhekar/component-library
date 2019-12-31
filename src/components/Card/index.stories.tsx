@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
     margin-left: 8px;
     margin-right: 8px;
 `;
-storiesOf("Card", module)
+storiesOf("Components/Card", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("default", () => (

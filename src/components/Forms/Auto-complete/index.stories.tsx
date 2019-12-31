@@ -17,7 +17,7 @@ const suggestions = [
     "Wetlands"
 ];
 
-storiesOf("Auto Complete", module)
+storiesOf("Components/Auto Complete", module)
     .addDecorator(checkA11y)
     .addDecorator(withInfo)
     .add("default",
